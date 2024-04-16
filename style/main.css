@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -6,48 +6,85 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-header{
+
+body {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "main main aside"
+      "footer footer footer";
     width: 1536px;
     margin: 0 auto;
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+}
+
+aside {
+    grid-area: aside;
+    padding: 20px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #26252d;
+    color: white;
+    padding: 40px;
+}
+
+header {
+    grid-area: header;
+    grid-column: span 3;
+    width: 1536px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #80808080;
+    border-bottom: solid 1px #80808025;
 }
-input[type = search] {
-    padding: 10px;
-    background-color: #80808080;
-    border-radius: 3px;
-}
-header h2{
+header h2 {
     font-size: 3rem;
 }
-header p{
+header p {
     font-size: 1.2rem;
 }
-header{
-    grid-area: 1 / 1 / 2 / 5;
+input[type="search"] {
+    background-color: #80808025;
+    border-radius: 3px;
+    padding: 10px;
 }
-body{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-main{
-    grid-area: 2 / 1 / 3 / 4;
-    background-color: yellow;
+.post {
+    width: 300px;
+    position: relative;
 }
-aside{
-    grid-area: 2 / 4 / 3 / 5;
-    background-color: red;
+.post:first-child {
+    width: 620px;
 }
-footer{
-    grid-area: 3 / 1 / 4 / 5;
-    background-color: black;
+.post_img {
+    overflow: hidden;
 }
-header p{
-    font-size: 1.2rem;
+.post:hover img {
+    transform: scale(1.5);
+    transition: all .1s linear;
+}
+.post img {
+    width: 100%;
+}
+.post_category {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background-color: #0000ff80;
+    backdrop-filter: blur(1px);
+    padding: 10px;
+    white-space: nowrap;
+    color: white;
 }
